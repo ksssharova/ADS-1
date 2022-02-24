@@ -1,20 +1,57 @@
 // Copyright 2022 NNTU-CS
 #include <cstdint>
 #include "alg.h"
+#include <math.h>
 
+/* - bool checkPrime(uint64_t value) - проверка числа на простоту.
+   - uint64_t nPrime(uint64_t n) - нахождение n-ого простого числа (в ряду).
+   - uint64_t nextPrime(uint64_t value) - нахождение ближайшего следующего простого числа к value.
+   - uint64_t sumPrime(uint64_t hbound) - сумма всех чисел до hbound (не включая его) */
+
+/* int value, i;
+cout << "Enter the number: ";
+cin >> value;
+cout << value << endl; */
 
 bool checkPrime(uint64_t value) {
-// вставьте код функции
+  for (int i = 2; i*i <= value; i++) {
+    if (value % i == 0) {
+      return false;
+      break;
+    }
+  }
+  if (checkPrime)
+    cout << "This is a prime number" << endl;
+  else
+    cout << "This is not a prime number" << endl;
+  return 0;
 }
 
 uint64_t nPrime(uint64_t n) {
-// вставьте код функции
+  int count = 0;
+  uint64_t i = 1;
+  while (count !=n ) {
+    i++;
+    if (checkPrime(i))
+      count ++;
+  }
+  return 1;
 }
 
 uint64_t nextPrime(uint64_t value) {
-// вставьте код функции
+  int c = value;
+  while (true) {
+    c++;
+    if (checkPrime(c))
+      return c;
+  }
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-// вставьте код функции
+  int sum = 0;
+  for (int i = 2; i < hbound; i++) {
+    if (checkPrime(i)) 
+      sum +=1;
+  }
+  return sum;
 }
