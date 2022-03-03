@@ -1,7 +1,6 @@
 // Copyright 2022 NNTU-CS
 #include <cstdint>
 #include "alg.h"
-#include <math.h>
 
 /* - bool checkPrime(uint64_t value) - проверка числа на простоту.
    - uint64_t nPrime(uint64_t n) - нахождение n-ого простого числа (в ряду).
@@ -20,11 +19,7 @@ bool checkPrime(uint64_t value) {
       break;
     }
   }
-  if (checkPrime)
-    cout << "This is a prime number" << endl;
-  else
-    cout << "This is not a prime number" << endl;
-  return 0;
+  return true;
 }
 
 uint64_t nPrime(uint64_t n) {
@@ -33,9 +28,9 @@ uint64_t nPrime(uint64_t n) {
   while (count !=n ) {
     i++;
     if (checkPrime(i))
-      count ++;
+      count++;
   }
-  return 1;
+  return i;
 }
 
 uint64_t nextPrime(uint64_t value) {
@@ -51,7 +46,7 @@ uint64_t sumPrime(uint64_t hbound) {
   int sum = 0;
   for (int i = 2; i < hbound; i++) {
     if (checkPrime(i)) 
-      sum +=1;
+      sum +=i;
   }
   return sum;
 }
